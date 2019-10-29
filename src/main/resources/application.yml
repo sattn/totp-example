@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: dev
+server:
+  port: 8080
+
+---
+spring:
+  profiles: dev
+  mail:
+    host: smtp.mailtrap.io
+    port: 2525
+    username: username
+    password: password
+    properties.mail.smtp.auth: true
+    properties.mail.smtp.starttls.enable: true
+  datasource:
+    url: jdbc:mysql://localhost/totp?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: guest
+    password: guest
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    sql-script-encoding: utf-8
+    initialization-mode: always
+logging:
+  level:
+    root: INFO
+    org.springframework.jdbc: DEBUG
+    org.springframework.web: DEBUG
+    com.takahiro310: DEBUG
